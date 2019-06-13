@@ -1,0 +1,136 @@
+            <?php if(count($key["sub_menu"]) > 0){ ?>
+<?php } else { ?>
+
+
+Database
+	products --> barang-masuk
+		kode_barang
+		nama_barang
+		jumlah_barang
+		tanggal_masuk
+		harga_barang
+
+Model
+Product_model.php. --> BarangMasuk_model.php
+
+Controller
+admin/Products.php --> transaksi
+
+* User Role
+1 Administrator
+2 Gudang
+3 Penjualan
+4 Pelanggan
+
+* Pengguna
+1. Admin/Pemilik
+	Beranda
+ 	 - Halaman Utama [url -> admin]
+
+	Admin
+	 - Akun (kelola akun)(Hapus) [url -> admin/user]
+
+	Transaksi
+	 - Barang Masuk(liat) [url -> transaksi/barang_masuk] revisi [ct_barangmasuk]
+	 - Barang Keluar(liat) [url -> transaksi/barang_keluar]
+	 - Penjualan(liat) [url -> transaksi/penjualan]
+	 - Pembelian(liat) [url -> transaksi/pembelian]
+	 - Pengembalian(retur pembelian)(liat) [url -> transaksi/pengembalian]
+
+	Laporan
+	 - Laporan Barang Masuk [url -> laporan/barang_masuk]
+	 - Laporan Barang Keluar [url -> laporan/barang_keluar]
+	 - Laporan Penjualan [url -> laporan/penjualan]
+	 - Laporan Pembelian [url -> laporan/pembelian]
+	 - Laporan Pengembalian(retur pembelian) [url -> laporan/pengembalian]
+
+2. Gudang
+	Transaksi
+	 - Barang Masuk(input/edit/hapus/liat) [url -> transaksi/barang_masuk]
+	 - Barang Keluar(input/edit/hapus/liat) [url -> transaksi/barang_keluar]
+	 - Pembelian(liat)(cek --> kosong|tersedia) -> liat barang_masuk[stock]
+	 - Pembelian ke supplier(input/edit/hapus/liat) [url -> transaksi/pembelian]
+
+	Laporan
+	 - Laporan Barang Masuk [url -> laporan/barang_masuk]
+	 - Laporan Barang Keluar [url -> laporan/barang_keluar]
+	 - Laporan Pembelian ke supplier [url -> laporan/pembelian_supplier]
+
+3. Penjualan
+	Transaksi
+	 - Barang Masuk(liat)(cek --> kosong|tersedia) -> liat barang_masuk[stock]
+	 - Penjualan(input/edit/hapus/liat) [url -> transaksi/penjualan]
+	 - Pembelian(input/edit/hapus/liat) [url -> transaksi/pembelian]
+
+	Laporan
+	 - Laporan Penjualan [url -> laporan/penjualan]
+	 - Laporan Pembelian [url -> laporan/pembelian]
+	 - Laporan Pengembalian(retur pembelian) [url -> laporan/pengembalian]
+
+4. Pelanggan
+	Transaksi
+	 - Pembelian(input/edit/hapus/liat) [url -> transaksi/pembelian]
+	 - Pengembalian(retur pembelian)(input/edit/hapus/liat) [url -> transaksi/pengembalian]
+	
+	Laporan
+	 - Struk pembelian (Khusus Pelanggan [url -> laporan/struk_pembelian])
+	 - Laporan pengembaian(retur pembelian) [url -> laporan/pengembalian]
+
+
+Coding Menu
+            <!-- Looping Menu -->
+            <?php foreach ($menu as $m) : ?>
+                <div class="sidebar-heading">
+                    <?= $m['menu']; ?>
+                </div>
+
+                <!-- jika Sub Menu lebih dari 1-->
+                <?php if ($m['menu'] == "Transaksi" || "Laporan") : ?>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>
+                                <?= $m['menu']; ?>
+                            </span>
+                        </a>
+                    <?php endif; ?>
+
+                    <!-- Looping Sub-Menu sesuai Menu -->
+                    <?php
+                    $menuId = $m['id'];
+                    $query_sub_menu =  " SELECT * 
+                                      FROM user_sub_menu 
+                                      WHERE menu_id = $menuId
+                                      AND is_active = 1
+                                   ";
+                    $subMenu = $this->db->query($query_sub_menu)->result_array();
+                    ?>
+
+                    <?php foreach ($subMenu as $sm) : ?>
+                        <?php if ($title == $sm['title']) : ?>
+                        <li class="nav-item active">
+                        <?php else : ?>
+                        <li class="nav-item">
+                        <?php endif; ?>
+
+                        <a class="nav-link pb-0" href="<?= base_url($sm['url']); ?>">
+                            <i class="<?= $sm['icon']; ?>"></i>
+                            <span><?= $sm['title']; ?></span>
+                        </a>
+
+                        <!-- jika Sub Menu lebih dari 1 lanjutan -->
+                        <?php if ($m['menu'] == "Transaksi" || "Laporan") : ?>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    <a class="collapse-item" href="<?= base_url($sm['url']); ?>">
+                                        <i class="<?= $sm['icon']; ?>"></i>
+                                        <span><?= $sm['title']; ?></span>
+                                    </a>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach ?>
+                <!-- Divider -->
+                <hr class="sidebar-divider mt-3">
+            <?php endforeach; ?>
