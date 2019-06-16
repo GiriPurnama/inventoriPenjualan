@@ -1,0 +1,190 @@
+.navbar, .dropdown-menu{
+    background: #4e73df;
+    border: none;
+
+}
+.nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
+    border-bottom: 3px solid transparent;
+}
+.nav>li>a:focus, .nav>li>a:hover,.nav .open>a, .nav .open>a:focus, .nav .open>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+    border-bottom: 3px solid transparent;
+    background: none;
+}
+.navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .navbar-toggle{
+    color: #fff;
+}
+.dropdown-menu{
+        -webkit-box-shadow: none;
+    box-shadow:none;
+}
+
+.nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1){
+    border-bottom: #C4E17F 3px solid;
+}
+.nav li:hover:nth-child(8n+2), .nav li.active:nth-child(8n+2){
+    border-bottom: #F7FDCA 3px solid;
+}
+.nav li:hover:nth-child(8n+3), .nav li.active:nth-child(8n+3){
+    border-bottom: #FECF71 3px solid;
+}
+.nav li:hover:nth-child(8n+4), .nav li.active:nth-child(8n+4){
+    border-bottom: #F0776C 3px solid;
+}
+.nav li:hover:nth-child(8n+5), .nav li.active:nth-child(8n+5){
+    border-bottom: #DB9DBE 3px solid;
+}
+.nav li:hover:nth-child(8n+6), .nav li.active:nth-child(8n+6){
+    border-bottom: #C49CDE 3px solid;
+}
+.nav li:hover:nth-child(8n+7), .nav li.active:nth-child(8n+7){
+    border-bottom: #669AE1 3px solid;
+}
+.nav li:hover:nth-child(8n+8), .nav li.active:nth-child(8n+8){
+    border-bottom: #62C2E4 3px solid;
+}
+.navbar-toggle .icon-bar{
+    color: #fff;
+    background: #fff;
+}
+section.body {
+    margin-top: 120px;
+}
+.box {
+    margin-bottom: 40px;
+}
+p.title {
+    font-size: 18px;
+    color: #3e4249;
+    text-align: left;
+    margin-bottom: 0px;
+    margin-top: 13px;
+    font-weight: bold;
+}
+p.sub-title{
+    font-size: 16px;
+    color: #b12704;
+    font-family: inherit;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+span.cost{
+    color: #999;
+    text-decoration: line-through;
+    margin-right: 5px;
+}
+span.percent{
+    color: #d90000;
+    font-weight: bold;
+}
+
+/* Ribbon  */
+.ribbon {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+  }
+  .ribbon::before,
+  .ribbon::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    display: block;
+    border: 5px solid #2980b9;
+  }
+  .ribbon span {
+    font-size: 10px;
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 16px 0;
+    background-color: #3498db;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    color: #fff;
+    font: 700 16px/1 'Lato', sans-serif;
+    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  /* top left*/
+  .ribbon-top-left {
+    top: -10px;
+    left: 5px;
+  }
+  .ribbon-top-left::before,
+  .ribbon-top-left::after {
+    border-top-color: transparent;
+    border-left-color: transparent;
+  }
+  .ribbon-top-left::before {
+    top: 0;
+    right: 0;
+  }
+  .ribbon-top-left::after {
+    bottom: 0;
+    left: 0;
+  }
+  .ribbon-top-left span {
+    right: -25px;
+    top: 30px;
+    transform: rotate(-45deg);
+  }
+  input, textarea, button {
+    outline: none;
+  }
+  input.search {
+    padding: 5px 150px 5px 5px;
+    margin: 10px 0px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    font-size: 16px;
+}
+button.btn.src-btn {
+    position: relative;
+    left: -4px;
+    top: -1px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    outline: 0;
+    background: #f7931e;
+    color: #FFF;
+}
+.dropdown-toggle i{
+    font-size: 18px;
+    position: relative;
+    top: 3px;
+}
+.count{
+    background-color: red;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    padding: 1px 7px;
+    vertical-align: top;
+    position: absolute;
+    margin-left: -13px;
+    top: 5px;
+    left: 6px;
+    border: 1px solid red;
+    box-shadow: inset 0 0 1px 0 red, 0 0 1px 0 red;
+}
+button.btn.add-cart {
+    background: #4e73df;
+    color: #FFF;
+    width: 100%;
+    margin-top: 20px;
+}
+.img-logo{
+    height: 50px;
+    width: 50px;
+    position: relative;
+    top: -13px;
+}
