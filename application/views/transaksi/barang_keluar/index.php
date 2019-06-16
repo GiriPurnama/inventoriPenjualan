@@ -34,19 +34,19 @@
             </thead>
             <tbody>
                 <?php $i = 1; ?>
-                <?php foreach ($barang_masuk as $bm) : ?>
+                <?php foreach ($barang_keluar as $bm) : ?>
                     <tr>
                         <th scope="row"><?= $i; ?></th>
                         <td><?= $bm->kode_barang; ?></td>
                         <td><?= $bm->nama_barang; ?></td>
                         <td><?= $bm->jumlah_barang; ?></td>
-                        <td><?= $bm->tanggal_masuk; ?></td>
+                        <td><?= $bm->tanggal_keluar; ?></td>
                         <td><?= $bm->harga_barang; ?></td>
                         <!-- Cek user yang bisa melakukan proses ubah dan hapus data -->
                         <?php if ($user['role_id'] == 2) { ?>
                             <td>
                                 <a data-toggle="modal" data-target="#EditModal<?= $bm->kode_barang; ?>" class="btn btn-warning btn-circle" data-popup="tooltip" data-placement="top" title="Edit Data"><i class="fa fa-edit"></i></a>
-                                <a href="<?= base_url('t_barangmasuk/hapus/' . $bm->kode_barang); ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data <?= $bm->nama_barang; ?> ?');" class="btn btn-danger btn-circle" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash"></i></a>
+                                <a href="<?= base_url('t_barangkeluar/hapus/' . $bm->kode_barang); ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data <?= $bm->nama_barang; ?> ?');" class="btn btn-danger btn-circle" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash"></i></a>
                             </td>
                         <?php } ?>
                         <!-- akhir dari proses pengecekan -->
@@ -74,7 +74,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url("t_barangmasuk/add"); ?>" method="post">
+            <form action="<?= base_url("t_barangkeluar/add"); ?>" method="post">
                 <div class="modal-body">
                     <form>
                         <div class="form-row">
@@ -94,7 +94,7 @@
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="inputPassword4">Tanggal Masuk</label>
-                                <input type="date" class="form-control" id="tanggal_masuk" name="tanggal_masuk" placeholder="Tanggal Masuk">
+                                <input type="date" class="form-control" id="tanggal_keluar" name="tanggal_keluar" placeholder="Tanggal Keluar">
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="inputCity">Harga Barang</label>
@@ -113,7 +113,7 @@
 
 <!-- Edit Data -->
 <?php $no = 0;
-foreach ($barang_masuk as $bm) : $no++; ?>
+foreach ($barang_keluar as $bm) : $no++; ?>
     <div class="modal fade" id="EditModal<?= $bm->kode_barang; ?>" tabindex="-1" role="dialog" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -123,7 +123,7 @@ foreach ($barang_masuk as $bm) : $no++; ?>
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?= base_url("t_barangmasuk/edit"); ?>" method="post">
+                <form action="<?= base_url("t_barangkeluar/edit"); ?>" method="post">
                     <div class="modal-body">
                         <div class="form-row">
                             <input type="hidden" readonly value="<?= $bm->kode_barang; ?>" name="kode_barang" class="form-control">
@@ -143,7 +143,7 @@ foreach ($barang_masuk as $bm) : $no++; ?>
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="inputPassword4">Tanggal Masuk</label>
-                                <input type="date" class="form-control" id="tanggal_masuk" name="tanggal_masuk" placeholder="Tanggal Masuk" value="<?= $bm->tanggal_masuk; ?>">
+                                <input type="date" class="form-control" id="tanggal_keluar" name="tanggal_keluar" placeholder="Tanggal Masuk" value="<?= $bm->tanggal_keluar; ?>">
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="inputCity">Harga Barang</label>

@@ -12,62 +12,32 @@ class BarangMasuk_model extends CI_Model
     public $tanggal_masuk; //= date(Y - m - d);
     public $harga_barang;
 
-    public function rules()
+    public function read($where = null)
     {
-        return [
-            [
-                'field' => 'nama_barang',
-                'label' => 'Nama_barang',
-                'rules' => 'required'
-            ],
+        if (!empty($where))
+            $this->db->where($where);
 
-            [
-                'field' => 'jumlah_barang',
-                'label' => 'Jumlah_barang',
-                'rules' => 'required'
-            ],
-
-            [
-                'field' => 'harga_barang',
-                'label' => 'Harga_barang',
-                'rules' => 'required'
-            ]
-        ];
+        $query = $this->db->get($this->_table);
+        if ($query->num_rows() > 0)
+            return $query->result(); //atau >= 1
+        else
+            return array();
     }
 
-    public function getALL()
+    public function create($data)
     {
-        return $this->db->get($this->_table)->result();
+        $this->db->insert($this->_table, $data);
     }
 
-    public function getById($id)
+    public function update($where, $data)
     {
-        return $this->db->get_where($this->_table, ["kode_barang" => $id])->row();
+        $this->db->where($where);
+        $this->db->update($this->_table, $data);
     }
 
-    public function save()
+    public function delete($where)
     {
-        $post = $this->input->post();
-        //$this->kode_barang = uniqid();
-        $this->nama_barang = $post["nama_barang"];
-        $this->jumlah_barang = $post["jumlah_barang"];
-        $this->tanggal_masuk = $post["tanggal_masuk"];
-        $this->harga_barang = $post["harga_barang"];
-        $this->db->insert($this->_table, $this);
-    }
-
-    public function update()
-    {
-        $post = $this->input->post();
-        $this->kode_barang = $post["kode_barang"];
-        $this->nama_barang = $post["nama_barang"];
-        $this->jumlah_barang = $post["jumlah_barang"];
-        $this->harga_barang = $post["harga_barang"];
-        $this->db->update($this->_table, $this, array('kode_barang' => $post['kode_barang']));
-    }
-
-    public function delete($id)
-    {
-        return $this->db->delete($this->_table, array("kode_barang" => $id));
+        $this->db->where($where);
+        $this->db->delete($this->_table);
     }
 }

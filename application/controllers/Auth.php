@@ -43,36 +43,43 @@ class Auth extends CI_Controller
 					$this->session->set_userdata($data);
 					if ($user['role_id'] == 1) {
 						redirect('admin');
+					} else if ($user['role_id'] == 2) {
+						redirect('gudang');
+					} else if ($user['role_id'] == 3) {
+						redirect('t_penjualan');
 					} else {
-						redirect('user');
+						redirect('pelanggan');
 					}
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-					Wrong password!</div>');
+					Kata sandi salah!</div>');
 					redirect('auth');
 				}
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-				This email has not been actived!</div>');
+				Email belum diaktifkan, Silahkan aktifkan terlebih dahulu!</div>');
 				redirect('auth');
 			}
 		} else {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-			Email is not registered!</div>');
+			Email belum terdaftar!</div>');
 			redirect('auth');
 		}
 	}
 
 	public function registration()
 	{
-		$this->form_validation->set_rules('name', 'Name', 'required|trim');
+		$this->form_validation->set_rules('name', 'Name', 'required|trim', [
+			'required' => 'Nama Kosong!'
+		]);
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
-			'is_unique' => 'This email has already registered!'
+			'required' => 'E-mail Kosong!',
+			'is_unique' => 'Email ini sudah terdaftar!'
 		]);
 		$this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
-			'required' => 'Password is empty!',
-			'matches' => 'Password dont match!',
-			'min_length' => 'Password to short!'
+			'required' => 'Kata sandi Kosong!',
+			'matches' => 'Kata sandi tidak cocok!',
+			'min_length' => 'Kata sandi terlalu pendek!'
 		]);
 		$this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
@@ -93,7 +100,7 @@ class Auth extends CI_Controller
 
 			$this->db->insert('user', $data);
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-			Congratulation! your account has been created. Please Login</div>');
+			Selamat! akun anda berhasil di buat. silahkan login</div>');
 			redirect('auth');
 		}
 	}

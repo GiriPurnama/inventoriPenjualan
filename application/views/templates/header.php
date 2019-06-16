@@ -18,20 +18,21 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
 
-    <!-- 
-        Baruuu 
-        Bootstrap core CSS
-    -->
-    <link href="<?= base_url('assets/'); ?>vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <!-- Baru -->
+    <!-- Bootstrap Core CSS -->
+    <link href="<?= base_url('assets/'); ?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template-->
-    <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" type="text/css">
+    <!-- DataTables CSS -->
+    <link href="<?= base_url('assets/'); ?>vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
-    <!-- Page level plugin CSS-->
-    <link href="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.css') ?>" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="<?= base_url('assets/'); ?>vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
-    <link href="<?= base_url('assets/'); ?>css/sb-admin.css') ?>" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="<?= base_url('assets/'); ?>css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="<?= base_url('assets/'); ?>vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 </head>
 

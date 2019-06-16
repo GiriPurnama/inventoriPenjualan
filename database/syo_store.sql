@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jun 2019 pada 08.19
+-- Waktu pembuatan: 14 Jun 2019 pada 11.56
 -- Versi server: 10.1.35-MariaDB
 -- Versi PHP: 7.2.9
 
@@ -36,6 +36,13 @@ CREATE TABLE `barang_keluar` (
   `harga_barang` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `barang_keluar`
+--
+
+INSERT INTO `barang_keluar` (`kode_barang`, `nama_barang`, `jumlah_barang`, `tanggal_keluar`, `harga_barang`) VALUES
+('SYO01ACK', 'Black Syo', 12, '2019-06-13', 180000);
+
 -- --------------------------------------------------------
 
 --
@@ -55,7 +62,7 @@ CREATE TABLE `barang_masuk` (
 --
 
 INSERT INTO `barang_masuk` (`kode_barang`, `nama_barang`, `jumlah_barang`, `tanggal_masuk`, `harga_barang`) VALUES
-('SYO0011B', 'Black Syo', 12, '2019-09-30', 180000),
+('SYO0011B', 'Syo Black', 12, '2019-09-30', 180000),
 ('SYO01STB', 'Soraya Top IN black', 12, '2019-03-12', 188000),
 ('SYO02ADL', 'Azalia Dress Light', 12, '2019-03-13', 439000),
 ('SYO03EX', 'Syo Exclusive', 12, '2019-03-12', 279000),
@@ -65,27 +72,48 @@ INSERT INTO `barang_masuk` (`kode_barang`, `nama_barang`, `jumlah_barang`, `tang
 ('SYO08GDBM', 'Graciella Dress Blur Mix', 12, '2019-03-15', 439000),
 ('SYOAMANDA', 'Amanda Top Green', 12, '2019-03-12', 198000),
 ('SYOEX053', 'Syo Scarves', 12, '2019-03-15', 279000),
-('SYOEX68', 'SYO exclusive Series', 12, '2019-03-13', 239000),
-('SYOOCoba01', 'Coba Aeee', 12, '2017-11-30', 1000000),
-('SYOOCoba02', 'Black Syo', 12, '2018-12-31', 1000000);
+('SYOEX68', 'SYO exclusive Series', 12, '2019-03-13', 239000);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_user`
+-- Struktur dari tabel `pembelian`
 --
 
-CREATE TABLE `data_user` (
-  `id_karyawan` int(11) NOT NULL,
-  `nama_karyawan` varchar(50) NOT NULL,
-  `alamat` text NOT NULL,
-  `tempat` text NOT NULL,
-  `tanggal_lahir` date NOT NULL,
-  `telephon` varchar(12) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `level` enum('admin','gudang','penjualan') NOT NULL
+CREATE TABLE `pembelian` (
+  `kode_barang` varchar(11) NOT NULL,
+  `nama_barang` varchar(30) NOT NULL,
+  `jumlah_barang` int(11) NOT NULL,
+  `tanggal_pembelian` date NOT NULL,
+  `harga_barang` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pembelian`
+--
+
+INSERT INTO `pembelian` (`kode_barang`, `nama_barang`, `jumlah_barang`, `tanggal_pembelian`, `harga_barang`) VALUES
+('SYO0101', 'Black Syo', 12, '2019-06-14', 180000);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `penjualan`
+--
+
+CREATE TABLE `penjualan` (
+  `kode_penjualan` varchar(11) NOT NULL,
+  `kode_barang` varchar(11) NOT NULL,
+  `nama_barang` varchar(50) NOT NULL,
+  `jumlah_barang` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `penjualan`
+--
+
+INSERT INTO `penjualan` (`kode_penjualan`, `kode_barang`, `nama_barang`, `jumlah_barang`) VALUES
+('SYO0111', 'SYO01ACK', 'Black Syo', 12);
 
 -- --------------------------------------------------------
 
@@ -100,6 +128,13 @@ CREATE TABLE `return_barang` (
   `keterangan_barang` text NOT NULL,
   `tanggal_pembelian` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `return_barang`
+--
+
+INSERT INTO `return_barang` (`kode_barang`, `nama_barang`, `jumlah_barang`, `keterangan_barang`, `tanggal_pembelian`) VALUES
+('SYO0001', 'Vlack DJ', 12, 'Barng MANAjsnkdbskdjd\r\ndfjfdhgd\r\ndfgnjdfsgs\r\ndfgnjfdbgjkdfsbdfbhdfjbg\r\ndfghdfjgsd\r\ndfjbvkjndfvkfdmga\r\ndfvndanvkad\r\ndvndkfnglkdfngiod\r\ndfnfdgndfni', '2019-06-14');
 
 -- --------------------------------------------------------
 
@@ -220,11 +255,11 @@ CREATE TABLE `user_sub_menu` (
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
 (1, 1, 'Halaman Utama', 'admin', 'fas fa-fw fa-tachometer-alt', 1),
 (2, 2, 'Akun', 'admin/user', 'fas fa-fw fa-user', 1),
-(3, 3, 'Barang Masuk', 'transaksi/barang_masuk', 'fas fa-fw fa-user-edit', 1),
-(4, 3, 'Barang Keluar', 'transaksi/barang_keluar', 'fas fa-sw fa-folder', 1),
-(5, 3, 'Penjualan', 'transaksi/penjualan', 'fas fa-fw fa-folder-open', 1),
-(6, 3, 'Pembelian', 'transaksi/pembelian', 'fas fa-fw fa-user-tie', 1),
-(7, 3, 'Pengembalian', 'transaksi/pengembalian', 'fas fa-fw fa-tachometer-alt', 1),
+(3, 3, 'Barang Masuk', 't_barangmasuk', 'fas fa-fw fa-user-edit', 1),
+(4, 3, 'Barang Keluar', 't_barangkeluar', 'fas fa-sw fa-folder', 1),
+(5, 3, 'Penjualan', 't_penjualan', 'fas fa-fw fa-folder-open', 1),
+(6, 3, 'Pembelian', 't_pembelian', 'fas fa-fw fa-user-tie', 1),
+(7, 3, 'Pengembalian', 't_pengembalian', 'fas fa-fw fa-tachometer-alt', 1),
 (8, 4, 'Barang Masuk', 'laporan/barang_masuk', 'fas fa-fw fa-user', 1),
 (9, 4, 'Barang Keluar', 'laporan/barang_keluar', 'fas fa-fw fa-user-edit', 1),
 (10, 4, 'Penjualan', 'laporan/penjualan', 'fas fa-sw fa-folder', 1),
@@ -250,10 +285,16 @@ ALTER TABLE `barang_masuk`
   ADD PRIMARY KEY (`kode_barang`);
 
 --
--- Indeks untuk tabel `data_user`
+-- Indeks untuk tabel `pembelian`
 --
-ALTER TABLE `data_user`
-  ADD PRIMARY KEY (`id_karyawan`);
+ALTER TABLE `pembelian`
+  ADD PRIMARY KEY (`kode_barang`);
+
+--
+-- Indeks untuk tabel `penjualan`
+--
+ALTER TABLE `penjualan`
+  ADD PRIMARY KEY (`kode_penjualan`);
 
 --
 -- Indeks untuk tabel `return_barang`
@@ -294,12 +335,6 @@ ALTER TABLE `user_sub_menu`
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
-
---
--- AUTO_INCREMENT untuk tabel `data_user`
---
-ALTER TABLE `data_user`
-  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

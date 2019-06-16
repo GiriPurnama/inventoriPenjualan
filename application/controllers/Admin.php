@@ -15,6 +15,8 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $data['count_data'] = $this->db->get('barang_masuk')->result_array();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -76,7 +78,6 @@ class Admin extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         $data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();
-
         $data['menu'] = $this->db->get('user_menu')->result_array();
 
         $this->load->view('templates/header', $data);

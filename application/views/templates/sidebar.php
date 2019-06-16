@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('admin'); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-store"></i>
         </div>
@@ -39,7 +39,8 @@
                         <?= $m['menu']; ?>
                     </span>
                 </a>
-            <?php elseif ($m['menu'] == "Laporan") : ?>
+            </li>
+        <?php elseif ($m['menu'] == "Laporan") : ?>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -47,21 +48,22 @@
                         <?= $m['menu']; ?>
                     </span>
                 </a>
-            <?php endif; ?>
+            </li>
+        <?php endif; ?>
 
-            <!-- Looping Sub-Menu sesuai Menu -->
-            <?php
-            $menuId = $m['id'];
-            $query_sub_menu =  " SELECT * 
+        <!-- Looping Sub-Menu sesuai Menu -->
+        <?php
+        $menuId = $m['id'];
+        $query_sub_menu =  " SELECT * 
                                       FROM user_sub_menu 
                                       WHERE menu_id = $menuId
                                       AND is_active = 1
                                    ";
-            $subMenu = $this->db->query($query_sub_menu)->result_array();
-            ?>
+        $subMenu = $this->db->query($query_sub_menu)->result_array();
+        ?>
 
-            <?php foreach ($subMenu as $sm) : ?>
-                <?php if ($title == $sm['title']) : ?>
+        <?php foreach ($subMenu as $sm) : ?>
+            <?php if ($title == $sm['title']) : ?>
                 <li class="nav-item active">
                 <?php else : ?>
                 <li class="nav-item">
