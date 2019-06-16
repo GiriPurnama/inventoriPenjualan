@@ -20,7 +20,7 @@
 
     <!-- Baru -->
     <!-- Bootstrap Core CSS -->
-    <link href="<?= base_url('assets/'); ?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="<?= base_url('assets/'); ?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- DataTables CSS -->
     <link href="<?= base_url('assets/'); ?>vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
