@@ -7,6 +7,7 @@
 
     <link href="<?= base_url('assets/'); ?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="<?= base_url('assets/'); ?>css/style.css" rel="stylesheet">
  
 
@@ -25,7 +26,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#"><img class="img-logo" src="<?= base_url('assets/'); ?>img/logoSyo.png" alt=""></a>
+                            <a class="navbar-brand" href="#"><div class="rotate-n-15"><i class="fas fa-store"></i></div><span class="logo-title">SYO Store</span></a>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav"> 

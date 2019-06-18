@@ -188,3 +188,14 @@ button.btn.add-cart {
     position: relative;
     top: -13px;
 }
+.rotate-n-15 {
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+    float: left;
+    margin-right: 10px;
+    font-size: 25px;
+}
+.logo-title {
+    text-transform: uppercase;
+    font-weight: bold;
+}
