@@ -69,7 +69,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="col-md-4">
+                    <div class="col-md-4 lazy">
                         <div class="box">
                             <div class="ribbon ribbon-top-left">
                                 <span>Recommended</span>
@@ -96,7 +96,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 lazy">
                         <div class="box">
                             <div class="ribbon ribbon-top-left">
                                 <span>Recommended</span>
@@ -123,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 lazy">
                         <div class="box">
                             <div class="ribbon ribbon-top-left">
                                 <span>Recommended</span>
@@ -150,7 +150,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 lazy">
                         <div class="box">
                             <div class="box-img">
                                 <img src="https://via.placeholder.com/350x400">
@@ -166,7 +166,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 lazy">
                         <div class="box">
                             <div class="box-img">
                                 <img src="https://via.placeholder.com/350x400">
@@ -182,7 +182,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 lazy">
                         <div class="box">
                             <div class="box-img">
                                 <img src="https://via.placeholder.com/350x400">
@@ -212,9 +212,16 @@
  <!-- Bootstrap core JavaScript-->
  <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
  <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+ <script src="<?= base_url('assets/'); ?>vendor/lazy/jquery.lazy.min.js"></script>
+ 
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
+  <script>
+      $(function() {
+        $('.lazy').lazy();
+        console.log("test");
+    });
+  </script>
