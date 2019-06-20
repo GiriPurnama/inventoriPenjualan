@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Jun 2019 pada 11.56
+-- Waktu pembuatan: 19 Jun 2019 pada 17.44
 -- Versi server: 10.1.35-MariaDB
 -- Versi PHP: 7.2.9
 
@@ -35,13 +35,6 @@ CREATE TABLE `barang_keluar` (
   `tanggal_keluar` date NOT NULL,
   `harga_barang` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `barang_keluar`
---
-
-INSERT INTO `barang_keluar` (`kode_barang`, `nama_barang`, `jumlah_barang`, `tanggal_keluar`, `harga_barang`) VALUES
-('SYO01ACK', 'Black Syo', 12, '2019-06-13', 180000);
 
 -- --------------------------------------------------------
 
@@ -77,23 +70,16 @@ INSERT INTO `barang_masuk` (`kode_barang`, `nama_barang`, `jumlah_barang`, `tang
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pembelian`
+-- Struktur dari tabel `pembelian_supplier`
 --
 
-CREATE TABLE `pembelian` (
-  `kode_barang` varchar(11) NOT NULL,
+CREATE TABLE `pembelian_supplier` (
+  `kode_barang` varchar(10) NOT NULL,
   `nama_barang` varchar(30) NOT NULL,
   `jumlah_barang` int(11) NOT NULL,
   `tanggal_pembelian` date NOT NULL,
   `harga_barang` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `pembelian`
---
-
-INSERT INTO `pembelian` (`kode_barang`, `nama_barang`, `jumlah_barang`, `tanggal_pembelian`, `harga_barang`) VALUES
-('SYO0101', 'Black Syo', 12, '2019-06-14', 180000);
 
 -- --------------------------------------------------------
 
@@ -103,17 +89,12 @@ INSERT INTO `pembelian` (`kode_barang`, `nama_barang`, `jumlah_barang`, `tanggal
 
 CREATE TABLE `penjualan` (
   `kode_penjualan` varchar(11) NOT NULL,
-  `kode_barang` varchar(11) NOT NULL,
+  `kode_barang` varchar(10) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
-  `jumlah_barang` int(11) NOT NULL
+  `jumlah_barang` int(11) NOT NULL,
+  `harga_barang` int(11) NOT NULL,
+  `tanggal_pembeian` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `penjualan`
---
-
-INSERT INTO `penjualan` (`kode_penjualan`, `kode_barang`, `nama_barang`, `jumlah_barang`) VALUES
-('SYO0111', 'SYO01ACK', 'Black Syo', 12);
 
 -- --------------------------------------------------------
 
@@ -258,15 +239,15 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (3, 3, 'Barang Masuk', 't_barangmasuk', 'fas fa-fw fa-user-edit', 1),
 (4, 3, 'Barang Keluar', 't_barangkeluar', 'fas fa-sw fa-folder', 1),
 (5, 3, 'Penjualan', 't_penjualan', 'fas fa-fw fa-folder-open', 1),
-(6, 3, 'Pembelian', 't_pembelian', 'fas fa-fw fa-user-tie', 1),
-(7, 3, 'Pengembalian', 't_pengembalian', 'fas fa-fw fa-tachometer-alt', 1),
-(8, 4, 'Barang Masuk', 'laporan/barang_masuk', 'fas fa-fw fa-user', 1),
-(9, 4, 'Barang Keluar', 'laporan/barang_keluar', 'fas fa-fw fa-user-edit', 1),
-(10, 4, 'Penjualan', 'laporan/penjualan', 'fas fa-sw fa-folder', 1),
-(11, 4, 'Pembelian', 'laporan/pembelian', 'fas fa-fw fa-folder-open', 1),
-(12, 4, 'Pengembalian', 'laporan/pengembalian', 'fas fa-fw fa-user-tie', 1),
-(13, 4, 'Pembelian Supplier', 'laporan/pembelian_supplier', 'fas fa-fw fa-tachometer-alt', 1),
-(14, 4, 'Struk Pembelian', 'laporan/struk_pembelian', 'fas fa-fw fa-user-edit', 1);
+(6, 3, 'Pengembalian', 't_pengembalian', 'fas fa-fw fa-user-tie', 1),
+(8, 4, 'Barang Masuk', 'l_barangmasuk', 'fas fa-fw fa-user', 1),
+(9, 4, 'Barang Keluar', 'l_barangkeluar', 'fas fa-fw fa-user-edit', 1),
+(10, 4, 'Penjualan', 'l_penjualan', 'fas fa-sw fa-folder', 1),
+(11, 4, 'Pembelian', 'l_pembelian', 'fas fa-fw fa-folder-open', 1),
+(12, 4, 'Pengembalian', 'l_pengembalian', 'fas fa-fw fa-user-tie', 1),
+(13, 4, 'Pembelian Supplier', 'l_pembeliansupplier', 'fas fa-fw fa-tachometer-alt', 1),
+(14, 4, 'Struk Pembelian', 'l_strukpembelian', 'fas fa-fw fa-user-edit', 1),
+(15, 3, 'Pembelian Supplier', 't_pembeliansupplier', 'fas fa-fw fa-tachometer-alt', 1);
 
 --
 -- Indexes for dumped tables
@@ -285,16 +266,17 @@ ALTER TABLE `barang_masuk`
   ADD PRIMARY KEY (`kode_barang`);
 
 --
--- Indeks untuk tabel `pembelian`
+-- Indeks untuk tabel `pembelian_supplier`
 --
-ALTER TABLE `pembelian`
+ALTER TABLE `pembelian_supplier`
   ADD PRIMARY KEY (`kode_barang`);
 
 --
 -- Indeks untuk tabel `penjualan`
 --
 ALTER TABLE `penjualan`
-  ADD PRIMARY KEY (`kode_penjualan`);
+  ADD PRIMARY KEY (`kode_penjualan`,`kode_barang`),
+  ADD KEY `kode_barang` (`kode_barang`);
 
 --
 -- Indeks untuk tabel `return_barang`
@@ -364,7 +346,29 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `barang_keluar`
+--
+ALTER TABLE `barang_keluar`
+  ADD CONSTRAINT `barang_keluar_ibfk_1` FOREIGN KEY (`kode_barang`) REFERENCES `barang_masuk` (`kode_barang`);
+
+--
+-- Ketidakleluasaan untuk tabel `pembelian_supplier`
+--
+ALTER TABLE `pembelian_supplier`
+  ADD CONSTRAINT `pembelian_supplier_ibfk_1` FOREIGN KEY (`kode_barang`) REFERENCES `barang_masuk` (`kode_barang`);
+
+--
+-- Ketidakleluasaan untuk tabel `penjualan`
+--
+ALTER TABLE `penjualan`
+  ADD CONSTRAINT `penjualan_ibfk_1` FOREIGN KEY (`kode_barang`) REFERENCES `barang_masuk` (`kode_barang`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

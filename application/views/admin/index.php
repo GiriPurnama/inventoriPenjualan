@@ -42,7 +42,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Pembelian </div>
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Penjualan </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
                                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= count($count_data) ?></div>
@@ -56,7 +56,7 @@
                                         </div>
                                     </div>
                                     <div class="stats-link">
-                                        <a href="<?php echo base_url("t_pembelian"); ?>">
+                                        <a href="<?php echo base_url("t_penjualan"); ?>">
                                             Lihat
                                             <i class="fa fa-arrow-circle-o-right"></i>
                                         </a>

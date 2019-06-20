@@ -11,7 +11,7 @@
     <link href="<?= base_url('assets/'); ?>css/style.css" rel="stylesheet">
  
 
-    <title>SYO Store</title>
+    <title>SYO STORE</title>
 </head>
 <body>
     <section class="header-nav">
@@ -26,14 +26,14 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#"><div class="rotate-n-15"><i class="fas fa-store"></i></div><span class="logo-title">SYO Store</span></a>
+                            <a class="navbar-brand" href="#"><div class="rotate-n-15"><i class="fas fa-store"></i></div><span class="logo-title">SYO STORE</span></a>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav"> 
                                 <li class=" dropdown">
                                     <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Category</a></li>
+                                        <li><a href="#">Kategori</a></li>
                                     </ul>
                                 </li> 
                             </ul>
@@ -46,17 +46,17 @@
                             <ul class="nav navbar-nav pull-right">
                                 <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-cart"></i><span class="count">1</span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Teknologi Big Data - Rp 12,000 </a></li>
+                                        <li><a href="#">Soraya Top In Black - Rp 188.000 </a></li>
                                     </ul>
                                 </li>
                                 
-                                <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
+                                <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Masuk Sebagai<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Change Password</a></li>
-                                        <li><a href="#">My Profile</a></li>
+                                        <li><a href="#">Ganti Password</a></li>
+                                        <li><a href="#">Profil Saya</a></li>
                                     </ul>
                                 </li>
-                                <li class=""><a href="#">Logout</a></li>
+                                <li class=""><a href="#">Keluar</a></li>
                             </ul>
                         </div>
                     </div>
@@ -72,81 +72,65 @@
                     <div class="col-md-4 lazy">
                         <div class="box">
                             <div class="ribbon ribbon-top-left">
-                                <span>Recommended</span>
+                                <span>Rekomendasi</span>
                             </div>
                             <div class="box-img">
                                 <img src="https://via.placeholder.com/350x400">
                             </div>
                             <div class="box-text">
                                 <p class="title">
-                                    Teknologi Big Data
+                                    Soraya Top In Black
                                 </p>
                                 <p class="sub-title">
-                                    Rp. 12,0000
+                                    Rp. 188,000
                                 </p>
                                <div class="title-disc">
-                                    <span class="cost">
-                                        Rp. 24,000
-                                    </span>  
-                                    <span class="percent">
-                                        [50 %]
-                                    </span>
+                              
                                </div>
-                               <button class="btn add-cart">Add To Cart</button>
+                               <button class="btn add-cart">Masukkan Ke Keranjang</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4 lazy">
                         <div class="box">
                             <div class="ribbon ribbon-top-left">
-                                <span>Recommended</span>
+                                <span>Rekomendasi</span>
                             </div>
                             <div class="box-img">
                                 <img src="https://via.placeholder.com/350x400">
                             </div>
                             <div class="box-text">
                                 <p class="title">
-                                    Teknologi Big Data
+                                    Azalia Dress Ligth
                                 </p>
                                 <p class="sub-title">
-                                    Rp. 12,0000
+                                    Rp. 439,000
                                 </p>
-                                <div class="title-disc">
-                                    <span class="cost">
-                                        Rp. 24,000
-                                    </span>  
-                                    <span class="percent">
-                                        [50 %]
-                                    </span>
+                                <div class="title-disc">  
                                </div>
-                               <button class="btn add-cart">Add To Cart</button>
+                               <button class="btn add-cart">Masukkan Ke Keranjang</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4 lazy">
                         <div class="box">
                             <div class="ribbon ribbon-top-left">
-                                <span>Recommended</span>
+                                <span>Rekomendasi</span>
                             </div>
                             <div class="box-img">
                                 <img src="https://via.placeholder.com/350x400">
                             </div>
                             <div class="box-text">
                                 <p class="title">
-                                    Teknologi Big Data
+                                    Syo Exclusive
                                 </p>
                                 <p class="sub-title">
-                                    Rp. 12,0000
+                                    Rp. 279,000
                                 </p>
                                 <div class="title-disc">
-                                    <span class="cost">
-                                        Rp. 24,000
-                                    </span>  
-                                    <span class="percent">
-                                        [50 %]
-                                    </span>
+                                                                        
                                </div>
-                               <button class="btn add-cart">Add To Cart</button>
+                               <button class="btn add-cart">Masukkan Ke Keranjang</button>
                             </div>
                         </div>
                     </div>
@@ -157,12 +141,12 @@
                             </div>
                             <div class="box-text">
                                 <p class="title">
-                                    Teknologi Big Data
+                                    Aleza Dress
                                 </p>
                                 <p class="sub-title">
-                                    Rp. 12,0000
+                                    Rp. 439,000
                                 </p>
-                                <button class="btn add-cart">Add To Cart</button>
+                                <button class="btn add-cart">Masukkan Ke Keranjang</button>
                             </div>
                         </div>
                     </div>
@@ -173,12 +157,12 @@
                             </div>
                             <div class="box-text">
                                 <p class="title">
-                                    Teknologi Big Data
+                                    Syo Exclusive Series
                                 </p>
                                 <p class="sub-title">
-                                    Rp. 12,0000
+                                    Rp. 239,000
                                 </p>
-                                <button class="btn add-cart">Add To Cart</button>
+                                <button class="btn add-cart">Masukkan Ke Keranjang</button>
                             </div>
                         </div>
                     </div>
@@ -189,12 +173,12 @@
                             </div>
                             <div class="box-text">
                                 <p class="title">
-                                    Teknologi Big Data
+                                   Graciella Dress
                                 </p>
                                 <p class="sub-title">
-                                    Rp. 12,0000
+                                    Rp. 439,000
                                 </p>
-                                <button class="btn add-cart">Add To Cart</button>
+                                <button class="btn add-cart">Masukkan Ke Keranjang</button>
                             </div>
                         </div>
                     </div>

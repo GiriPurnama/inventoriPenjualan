@@ -18,7 +18,7 @@
                             <?= $this->session->flashdata('message'); ?>
 
                             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newMenuModal">
-                                Add New Menu
+                                Tambah Menu Baru
                             </a>
 
                             <table class="table table-hover">
@@ -26,7 +26,7 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Menu</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -36,8 +36,8 @@
                                             <th scope="row"><?= $i; ?></th>
                                             <td><?= $m['menu']; ?></td>
                                             <td>
-                                                <a href="" class="badge badge-success">edit</a>
-                                                <a href="" class="badge badge-danger">delete</a>
+                                                <a href="" class="badge badge-success">Edit</a>
+                                                <a href="" class="badge badge-danger">Hapus</a>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
@@ -61,7 +61,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="newMenuModalLabel">Add New Menu</h5>
+                                <h5 class="modal-title" id="newMenuModalLabel">Tambah Menu Baru</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -73,8 +73,8 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Add</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary">Tambah</button>
                                 </div>
                             </form>
                         </div>

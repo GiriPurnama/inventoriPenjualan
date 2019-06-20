@@ -1,0 +1,8 @@
+
+administrator@gmail.com	= administrator
+
+gudang@gmail.com		= gudang
+
+penjualan@gmail.com	= penjualan
+
+pelanggan@gmail.com	= pelanggan

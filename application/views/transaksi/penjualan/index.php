@@ -20,7 +20,7 @@
                     <th scope="col">Kode Barang</th>
                     <th scope="col">Nama Barang</th>
                     <th scope="col">Jumlah Barang</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,7 +55,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newSubMenuModalLabel">Tambah Data Barang Masuk</h5>
+                <h5 class="modal-title" id="newSubMenuModalLabel">Tambah Data Penjualan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -78,9 +78,9 @@
                                 <label for="inputPassword4">Nama Barang</label>
                                 <input type="text" class="form-control" id="nama_barang" name="nama_barang" placeholder="Nama Barang">
                             </div>
-                            <div class="form-group col-md-2">
-                                <label for="inputEmail4">Stok</label>
-                                <input type="number" class="form-control" id="jumlah_barang" name="jumlah_barang" placeholder="Stok">
+                            <div class="form-group col-md-4">
+                                <label for="inputEmail4">Jumlah Barang</label>
+                                <input type="number" class="form-control" id="jumlah_barang" name="jumlah_barang" placeholder="Jumlah Barang">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -100,7 +100,7 @@ foreach ($penjualan as $bm) : $no++; ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="newSubMenuModalLabel">Tambah Data Barang Masuk</h5>
+                    <h5 class="modal-title" id="newSubMenuModalLabel">Tambah Data Penjualan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -123,9 +123,9 @@ foreach ($penjualan as $bm) : $no++; ?>
                                 <label for="inputPassword4">Nama Barang</label>
                                 <input type="text" class="form-control" id="nama_barang" name="nama_barang" placeholder="Nama Barang" value="<?= $bm->nama_barang; ?>">
                             </div>
-                            <div class="form-group col-md-2">
-                                <label for="inputEmail4">Stok</label>
-                                <input type="text" class="form-control" id="jumlah_barang" name="jumlah_barang" placeholder="Stok" value="<?= $bm->jumlah_barang; ?>">
+                            <div class="form-group col-md-4">
+                                <label for="inputEmail4">Jumlah Barang</label>
+                                <input type="text" class="form-control" id="jumlah_barang" name="jumlah_barang" placeholder="Jumlah Barang" value="<?= $bm->jumlah_barang; ?>">
                             </div>
                         </div>
                         <div class="modal-footer">
